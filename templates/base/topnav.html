@@ -1,0 +1,29 @@
+{% load static %}
+
+<link rel="stylesheet" href="{% static 'css/nav.css' %}">
+<header>
+  <nav>
+    <ul class="nav__links">
+      <li><a class="{% if page == 'home' %} active {% else %} un_active {% endif %}" href="{% url 'home' %}">Home</a></li>
+      <li><a class="{% if page == 'news' %} active {% else %} un_active {% endif %}" href="#news">News</a></li>
+      <li><a class="{% if page == 'events' %} active {% else %} un_active {% endif %}" href="{% url 'events' %}">Events</a></li>
+      <li><a class="{% if page == 'about' %} active {% else %} un_active {% endif %}" href="#about">About</a></li>
+    </ul>
+  </nav>
+  <div class="sig_in_up">
+    {% block user_auth %}
+    
+    {% if user.is_authenticated %}
+    
+    
+
+    {% else %}
+
+    <a class='cta' href='{% url 'accounts:login' %}'><button>Login</button></a>
+    <a class='cta' href='{% url 'accounts:register' %}'><button>Register</button></a>
+
+    {% endif %}
+
+    {% endblock user_auth %}
+  </div>
+</header>
