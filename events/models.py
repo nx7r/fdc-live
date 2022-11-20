@@ -16,7 +16,7 @@ class Event(models.Model):
     name = models.CharField(max_length=50)
     date = models.DateField(auto_now=False, auto_now_add=False)
     dead_line = models.DateField(auto_now=False, auto_now_add=False)
-    participents = models.ManyToManyField(Participent)
+    participents = models.ManyToManyField(Participent, blank=True)
 
     def __str__(self):
         return self.name

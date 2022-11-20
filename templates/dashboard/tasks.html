@@ -1,0 +1,21 @@
+{% extends 'dashboard/base.html' %}
+
+{% block content %}
+
+    <div class="cards">
+{% for task in tasks %}
+
+    <div class="card">
+      <div class="card__icon"><i class="fas fa-bolt"></i></div>
+      <p class="card__exit">{{task.deadline}}<i class="fas fa-times"></i></p>
+      <h2 class="card__title">{{task}}</h2>
+      <p class="card__desc">
+        <a class="card__link" href="#{{task}}">Description<i class="fas fa-arrow-right"></i></a>
+      </p>
+    </div>
+        
+{% endfor %}
+
+</div>
+
+{% endblock content %}

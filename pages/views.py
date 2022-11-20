@@ -1,5 +1,5 @@
 from django.shortcuts import render
-
+from events.models import Event
 
 def homePage(request):
     page = "home"
@@ -9,5 +9,9 @@ def homePage(request):
 
 def eventsPage(request):
     page = 'events'
-    context = {'page':page}
+    events = Event.objects.all()
+    context = {
+        'page':page,
+        'events':events,
+    }
     return render(request, 'pages/events.html', context)
